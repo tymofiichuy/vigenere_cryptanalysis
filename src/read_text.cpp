@@ -11,6 +11,15 @@ uint8_t analyzer::char_to_index(wchar_t wch){
     }
 }
 
+wchar_t analyzer::index_to_char(uint8_t index){
+    if(index<0||index>31){
+        return -1;
+    }
+    else{
+        return static_cast<wchar_t>(index+0x430);
+    }
+}
+
 void analyzer::read_chiphertext(string file){
     wifstream str;
     wchar_t wch;

@@ -21,8 +21,13 @@ private:
     std::deque<uint8_t> ciphertext;
 
     uint8_t char_to_index(wchar_t wch);
+    wchar_t index_to_char(uint8_t index);
+
     float index_of_coincidence(float* frequency);
 public:
     void read_chiphertext(std::string file);
     int length_recovery(float threshold);
+    
+    vector<int> frequency_key_recovery(int key_size);
+    vector<int> index_key_recovery(int key_size);
 };
