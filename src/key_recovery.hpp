@@ -5,6 +5,8 @@
 #include<fstream>
 #include<cwchar>
 #include<string>
+#include<vector>
+#include<cmath>
 
 class analyzer{
 private:
@@ -22,4 +24,5 @@ private:
     float index_of_coincidence(float* frequency);
 public:
     void read_chiphertext(std::string file);
+    int length_recovery(float threshold);
 };
