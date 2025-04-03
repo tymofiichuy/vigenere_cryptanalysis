@@ -9,6 +9,10 @@ vector<int> analyzer::frequency_key_recovery(int key_size){
     for(int shift = 0; shift < key_size; shift++){
         char_index = shift;
         block_size = 0;
+        for(int i = 0; i < 32; i++){
+            block_frequency[i] = 0;
+        }
+        
         while(char_index<ciphertext.size()){
             block_frequency[ciphertext[char_index]]++;
 
@@ -22,14 +26,13 @@ vector<int> analyzer::frequency_key_recovery(int key_size){
             }
         }
 
-        key_symbol = 14-max_val_index;
+        key_symbol = max_val_index-14;
         if(key_symbol >= 0){
             key.push_back(key_symbol);
         }
         else{
-            key.push_back(32+key_symbol);
+            key.push_back(31+key_symbol);
         }
-
-        return key;
     }
+    return key;
 }

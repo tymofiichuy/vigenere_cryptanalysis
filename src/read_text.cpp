@@ -12,11 +12,11 @@ uint8_t analyzer::char_to_index(wchar_t wch){
 }
 
 wchar_t analyzer::index_to_char(uint8_t index){
-    if(index<0||index>31){
-        return -1;
+    if(index>31){
+        return 255;
     }
     else{
-        return static_cast<wchar_t>(index+0x430);
+        return static_cast<wchar_t>(index+0x80);
     }
 }
 
@@ -33,7 +33,7 @@ void analyzer::read_chiphertext(string file){
 
     while(str.read(&wch, 1)){
         index = char_to_index(wch);
-        if(index != -1){
+        if(index != 255){
             ciphertext.push_back(index);
         }
     }
