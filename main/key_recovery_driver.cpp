@@ -15,12 +15,18 @@ int main(int argc, char *argv[]){
             cerr << err.what();
         }
 
-        int len = anl.index_length_recovery(0.001f);
-        cout << len << "\n";
+        int len = anl.index_length_recovery(0.005f);
+        //cout << len << "\n";
+
         vector<int> key = anl.frequency_key_recovery(len);
         for(auto iter = key.begin(); iter != key.end(); iter++){
             wcout << anl.index_to_char(*iter);
-        }          
+        }
+        cout << "\n";
+        key = anl.index_key_recovery(len); 
+        for(auto iter = key.begin(); iter != key.end(); iter++){
+            wcout << anl.index_to_char(*iter);
+        }         
     }
     return 0;
 }
