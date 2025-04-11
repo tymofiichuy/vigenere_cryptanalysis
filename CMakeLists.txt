@@ -17,3 +17,4 @@ set(SOURCES
 include_directories(${SOURCE_DIR})
 
 add_executable(key_recovery ${MAIN_DIR}/key_recovery_driver.cpp ${SOURCES})
+add_executable(vigenere ${MAIN_DIR}/vigener.cpp)

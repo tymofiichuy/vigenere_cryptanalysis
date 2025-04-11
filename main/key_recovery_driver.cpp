@@ -5,6 +5,7 @@ using namespace std;
 int main(int argc, char *argv[]){
     if(argc != 2){
         cerr << "Invalid argument";
+        return 1;
     }
     else{
         analyzer anl;
